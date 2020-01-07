@@ -1,0 +1,3 @@
+interface ICatalogo {
+ IdCatalog: number;
+}

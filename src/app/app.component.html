@@ -1,0 +1,8 @@
+<!-- //TODO: ESTE ROUTER OUTLET HACE QUE NO CARGUE POR DEFECTO NINGÚN COMPONENTE, ASI MISMO ABLIGA A ANGULAR A QUE SE APOYE DEL RUTEADOR QUE SE CONFIGURÓ-->
+<div style="padding: 0px;">
+    <app-navigation-bar [hidden]="IsAuthenticate"></app-navigation-bar>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+    <router-outlet></router-outlet>
+</div>

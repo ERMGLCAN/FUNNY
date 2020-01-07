@@ -1,0 +1,148 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$probando-primary: mat-palette($mat-indigo);
+$probando-accent: mat-palette($mat-pink, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$probando-warn: mat-palette($mat-red);
+// Create the theme object (a Sass map containing all of the palettes).
+$probando-theme: mat-light-theme($probando-primary, $probando-accent, $probando-warn);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($probando-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#hero {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background: url(assets/pictures/hero.png) center bottom no-repeat;
+    background-size: 100%;
+    position: relative;
+    margin-top: 40px;
+}
+
+@media (min-width: 1025px) {
+    #hero {
+        background-attachment: fixed;
+    }
+}
+
+#hero .hero-container {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    font-family: "Philosopher", sans-serif;
+    color: #71c55d;
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+#hero h2 {
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    #hero h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+
+#hero img {
+    max-width: 95%;
+    margin-bottom: 30px;
+}
+
+#hero .btn-get-started {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 11px 36px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin-bottom: 30px;
+    border: 2px solid #71c55d;
+    background: #fff;
+    color: #71c55d;
+    text-decoration: none;
+}
+
+#hero .btn-get-started:hover {
+    background: #71c55d;
+    color: #fff;
+}
+
+#hero .btns a {
+    color: #555;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 4px 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+@media (max-width: 575px) {
+    #hero .btns a {
+        margin: 4px 8px;
+    }
+}
+
+#hero .btns a:hover {
+    color: #71c55d;
+}
+
+.mat-input-element {
+    width: 350px !important
+}
+
+.mat-dialog-container {
+    padding: 0px !important;
+}

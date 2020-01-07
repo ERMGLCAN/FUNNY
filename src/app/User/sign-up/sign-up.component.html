@@ -1,0 +1,111 @@
+<div class="container">
+    <div class="container-fluid">
+        <div class="row" style="padding:30px">
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+
+            </div>
+            <!-- <form [formGroup]="formRegister" (submit)="onSubmit(formRegister.value)"></form>-->
+            <div class="col-lg-6 col-md-6 col-sm-12" style="padding-top: 10px;" [class.mat-elevation-z8]="isActive">
+                <span class="material-icons" style="font-size: 50px;">supervised_user_circle</span>
+                <div class="col-lg-12" style="text-align:center; border-bottom:ridge 1px; border-color:#85e085;">
+                    Ingresa datos de Registro
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12" style="text-align: center; padding-top:15px;">
+                    <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xl-12" appearance="outline">
+                        <mat-label>Nombre:</mat-label>
+                        <input matInput placeholder="Nombre:" style="width:350px !important" [(ngModel)]="ur.Nombre">
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12" style="text-align: center;">
+                    <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xl-12" appearance="outline">
+                        <mat-label>Apellidos:</mat-label>
+                        <input matInput placeholder="Apellidos:" style="width:350px !important" [(ngModel)]="ur.Apellidos">
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12" style="text-align: center;">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6">
+                            <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xl-12" appearance="outline">
+                                <mat-label>Email:</mat-label>
+                                <input matInput placeholder="Email:" style="width:350px !important" [(ngModel)]="ur.Email">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6">
+                            <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xl-12" appearance="outline">
+                                <mat-label>Edad:</mat-label>
+                                <input type="number" matInput placeholder="Edad:" style="width:350px !important" [(ngModel)]="ur.Edad">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12" style="text-align: center; padding-bottom: 25px;">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6">
+                            <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xl-12" appearance="outline">
+                                <mat-label>Contraseña:</mat-label>
+                                <input style="text-align: center;" matInput placeholder="Enter your password:" [(ngModel)]="ur.Password">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6">
+                            <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xl-12" appearance="outline">
+                                <mat-label>Confirmar:</mat-label>
+                                <input style="text-align: center;" matInput placeholder="Confirm Password:" [type]="hide ? 'password' : 'text'">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                                                                                                              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                                                                                                            </button>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12" style="padding: 18px;">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6">
+                            <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xl-12" appearance="outline">
+                                <mat-label>Género</mat-label>
+                                <mat-select [(ngModel)]="generoSelected">
+                                    <mat-option *ngFor="let genero of lstCatalogoSexo$ | async" [value]="genero">
+                                        {{genero.valor}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6" style="text-align: right;">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Fecha de nacimiento:</mat-label>
+                                <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" [(ngModel)]="birthday">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker touchUi #picker></mat-datepicker>
+                            </mat-form-field>
+
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6" style="text-align: left;">
+                                    <button mat-raised-button color="primary" (click)="regresarLogin()"><span class="material-icons">arrow_back_ios</span> </button>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xl-6" style="text-align: right;">
+                                    <button mat-raised-button color="basic" (click)="registerUser()">Registrarme</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- </form>-->
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+
+            </div>
+        </div>
+    </div>
+</div>
